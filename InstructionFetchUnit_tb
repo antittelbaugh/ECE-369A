@@ -1,0 +1,53 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 08/31/2022 02:25:47 PM
+// Design Name: 
+// Module Name: InstructionFetchUnit_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module InstructionFetchUnit_tb();
+reg Reset, Clk;
+wire [31:0] Instruction;
+wire [31:0] PCResult;
+wire [31:0] PCAddResult;
+    
+    InstructionFetchUnit a1(
+        .Reset(Reset),
+        .Clk(Clk),
+        .Instruction(Instruction),
+        .PCResult(PCResult),
+        .PCAddResult(PCAddResult)
+    );
+    
+   
+	initial begin
+		Clk <= 1'b0;
+		forever #10 Clk <= ~Clk;
+	end
+	
+	initial begin
+	    #100
+        Reset <= 0;
+        @(posedge Clk);
+        
+        
+        #100
+        Reset <= 1;
+        @(posedge Clk);
+	end
+endmodule
