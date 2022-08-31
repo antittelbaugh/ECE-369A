@@ -38,10 +38,17 @@
 
 module InstructionMemory(Address, Instruction); 
 
+    integer i;
     input [31:0] Address;        // Input Address 
+    
+    reg mem[127:0];
 
     output reg [31:0] Instruction;    // Instruction at memory location Address
     
-    /* Please fill in the implementation here */
+    inital begin
+        for (i = 0; i < 32; i = i + 1) begin
+            Instruction[i] = i * 3;
+        end
+    end
 
 endmodule
