@@ -42,16 +42,13 @@ module InstructionFetchUnit(Instruction, Reset, Clk);
 
 	input Reset, Clk;
 	output reg [31:0] Instruction;
+	output reg [31:0] PCResult;
 	
 	wire [31:0] PCAddResult;
-	wire [31:0] PCResult;
-	wire [31:0] Address; 
 	
 	 
 	PCAdder adder(PCResult,PCAddResult);
-	ProgramCounter PC(Address,PCResult,Reset,Clk);
+	ProgramCounter PC(PCAddResult,PCResult,Reset,Clk);
 	InstructionMemory memory(PCResult,Instruction);
-	
- 
     /* Please fill in the implementation here... */
 endmodule
