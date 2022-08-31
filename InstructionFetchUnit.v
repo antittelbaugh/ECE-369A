@@ -37,28 +37,19 @@
 // which generates a continuous clock pulse into the module.
 ////////////////////////////////////////////////////////////////////////////////
 
-module InstructionMemory(Address, Instruction); 
+module InstructionFetchUnit(Instruction,PCResult, Reset, Clk);
+   
 
-    integer i;
-    input [31:0] Address;        // Input Address 
-    
-    reg [31:0] mem [127:0];
-
-    output reg [31:0] Instruction;    // Instruction at memory location Address
-    
-    initial begin
-      for (i = 0; i < 128; i = i + 1) begin
-            mem[i] <= i * 3;
-      end
-    end
-    
-    always @ (Address) begin
-    
-    //initial begin
-       
-     Instruction <= mem[Address];
-    end
-        
-        
+	input Reset, Clk;
+	output reg [31:0] Instruction;
+	output reg [31:0] PCResult;
+	
+	wire [31:0] PCAddResult;
+	
+	 
+	PCAdder adder(PCResult,PCAddResult);
+	ProgramCounter PC(PCAddResult,PCResult,Reset,Clk);
+	InstructionMemory memory(PCResult,Instruction);
+	
 
 endmodule
