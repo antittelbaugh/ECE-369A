@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
 
 ////////////////////////////////////////////////////////////////////////////////
-// Team Members:
+// Team Members: Julia Otto, Ashley Tittelbaugh, Mario Weiler
 // Overall percent effort of each team meber: 
-// 
+// 33.3333 % of the work each, with 100% individual effort and commitment
+
 // ECE369A - Computer Architecture
 // Laboratory 3 (PostLab)
 // Module - InstructionFetchUnit.v
