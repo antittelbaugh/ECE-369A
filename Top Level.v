@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08/31/2022 02:28:18 PM
+// Create Date: 08/31/2022 02:29:23 PM
 // Design Name: 
-// Module Name: Top Level
+// Module Name: TopLevel
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Top Level(
-
-    );
+module TopLevel(Reset, Clk, out7, en_out);
+    input Reset, Clk;
+    output [6:0] out7;
+    output reg [7:0] en_out;
+    wire ClkOut;
+    wire [31:0] Instruction;
+    wire [31:0] PCResult;
+    ClkDiv clk(Clk, Reset, ClkOut);
+    InstructionFetchUnit fetch(Instruction,PCResult, Reset, ClkOut);
+    Two4DigitDisplay(Clk, Instruction [15:0], PCResult[15:0], out7, en_out);
+    
+    
+    
 endmodule
