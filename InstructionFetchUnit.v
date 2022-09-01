@@ -41,8 +41,8 @@ module InstructionFetchUnit(Instruction,PCResult, Reset, Clk);
    
 
 	input Reset, Clk;
-	output reg [31:0] Instruction;
-	output reg [31:0] PCResult;
+	output wire [31:0] Instruction;
+	output wire [31:0] PCResult;
 	
 	wire [31:0] PCAddResult;
 	
