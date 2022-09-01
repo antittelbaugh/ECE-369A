@@ -23,7 +23,7 @@
 module TopLevel(Reset, Clk, out7, en_out);
     input Reset, Clk;
     output [6:0] out7;
-    output reg [7:0] en_out;
+    output wire [7:0] en_out;
     wire ClkOut;
     wire [31:0] Instruction;
     wire [31:0] PCResult;
