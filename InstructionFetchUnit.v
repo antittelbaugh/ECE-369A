@@ -38,12 +38,12 @@
 // which generates a continuous clock pulse into the module.
 ////////////////////////////////////////////////////////////////////////////////
 
-module InstructionFetchUnit(Instruction, Reset, Clk);
+module InstructionFetchUnit(Instruction, Reset, Clk, PCResult);
    
 
 	input Reset, Clk;
 	output wire [31:0] Instruction;
-	wire [31:0] PCResult;
+	(*mark_debug = "true"*) wire [31:0] PCResult;
 	
 	wire [31:0] PCAddResult;
 	
