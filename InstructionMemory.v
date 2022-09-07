@@ -55,7 +55,7 @@ module InstructionMemory(Address, Instruction);
     
     //initial begin
        
-     Instruction <= mem[Address];
+        Instruction <= mem[Address[31:2]];
     end
         
         
