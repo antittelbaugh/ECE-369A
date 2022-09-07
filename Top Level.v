@@ -26,10 +26,9 @@ module TopLevel(Reset, Clk, out7, en_out);
     output wire [7:0] en_out;
     wire ClkOut;
     wire [31:0] Instruction;
-    wire [31:0] PCResult;
     ClkDiv clk(Clk, Reset, ClkOut);
-    InstructionFetchUnit fetch(Instruction,PCResult, Reset, ClkOut);
-    Two4DigitDisplay(Clk, Instruction [15:0], PCResult[15:0], out7, en_out);
+    InstructionFetchUnit fetch(Instruction, Reset, ClkOut);
+    Two4DigitDisplay(Clk, Instruction[15:0], Instruction[31:16], out7, en_out);
     
     
     
